@@ -31,24 +31,22 @@ public class Main {
         System.out.println("=== BENCHMARK Serialize Deserialize===");
         int rounds = 100;
 
-//        // 4. Run Jackson
-//        benchmarkService.runBenchmark(
-//                "Jackson JSON",
-//                new JacksonCodec(),
-//                jsonPayload,
-//                rounds
-//        );
-//
-//        // 5. Run Protobuf
-//        benchmarkService.runBenchmark(
-//                "Protobuf Binary",
-//                new ProtobufCodec(protoPayload),
-//                protoPayload,
-//                rounds
-//        );
-//
+        // 4. Run Jackson
+        benchmarkService.runBenchmark(
+                "Jackson JSON",
+                new JacksonCodec(),
+                jsonPayload,
+                rounds
+        );
 
-
+        // 5. Run Protobuf
+        benchmarkService.runBenchmark(
+                "Protobuf Binary",
+                new ProtobufCodec(protoPayload),
+                protoPayload,
+                rounds
+        );
+//
         System.out.println("=== BENCHMARK REDIS ===");
 
         // 4. Run Jackson
