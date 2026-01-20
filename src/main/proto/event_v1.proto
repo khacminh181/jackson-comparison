@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package benchmark;
+
+message EventV1 {
+  string selected_scenario = 1;
+  repeated Scenario scenarios = 2;
+}
+
+message Scenario {
+  string name = 1;
+  string description = 2;
+  repeated Slot slots = 3;
+}
+
+message Slot {
+  string name = 1;
+  bool optional = 2;
+}

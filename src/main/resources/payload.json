@@ -1,0 +1,167 @@
+{
+  "selected_scenario": "pur/create_po",
+  "scenarios": [
+    {
+      "capability": {
+        "name": "dependency-capability",
+        "namespace": "com.sap.dep"
+      },
+      "slots": [
+        {
+          "slot_extension_action": "default",
+          "name": "pr_id",
+          "description": "ID of the purchase requisition the new purchase order is based on.",
+          "optional": false,
+          "source": [
+            {
+              "name": "pur/get_pr",
+              "type": "scenario",
+              "key": "$target_result.id",
+              "execution_group": "08e2ee1d-0db6-4020-a519-9c7c13cf6873"
+            },
+            {
+              "name": "pur/create_pr",
+              "type": "scenario",
+              "key": "$target_result.id",
+              "execution_group": "a1ce818e-b6c4-414c-91b4-433beacb3ebf"
+            }
+          ]
+        },
+        {
+          "slot_extension_action": "default",
+          "name": "document_date",
+          "description": "Defaults to the current date, if not explicitly set.",
+          "optional": true,
+          "source": []
+        }
+      ],
+      "capability_id": "dd23f4ce28bb4913ba76cc48e6b0f330",
+      "name": "pur/create_po",
+      "description": "Creates a purchase order",
+      "title": "create po",
+      "extensible": false,
+      "data_processing": {
+        "policy": "sensitive_personal"
+      },
+      "target": {
+        "name": "pur/create_po_df",
+        "type": "function",
+        "parameters": []
+      }
+    },
+    {
+      "capability": {
+        "name": "dependency-capability",
+        "namespace": "com.sap.dep"
+      },
+      "slots": [
+        {
+          "slot_extension_action": "default",
+          "name": "vendor_id",
+          "description": "Technical identifier for the vendor",
+          "optional": false,
+          "source": [
+            {
+              "name": "pur/get_vendor",
+              "type": "scenario",
+              "key": "$target_result.id",
+              "execution_group": "111119d4-a43e-4c92-ad94-0fdb27a5a093"
+            }
+          ]
+        }
+      ],
+      "capability_id": "dd23f4ce28bb4913ba76cc48e6b0f330",
+      "name": "pur/create_pr",
+      "description": "Create PR",
+      "title": "create pr",
+      "extensible": false,
+      "data_processing": {
+        "policy": "sensitive_personal"
+      },
+      "target": {
+        "name": "pur/create_pr",
+        "type": "function",
+        "parameters": []
+      }
+    },
+    {
+      "capability": {
+        "name": "dependency-capability",
+        "namespace": "com.sap.dep"
+      },
+      "slots": [
+        {
+          "slot_extension_action": "default",
+          "name": "vendor_id",
+          "description": "Technical identifier for the vendor",
+          "optional": false,
+          "source": [
+            {
+              "name": "pur/get_vendor",
+              "type": "scenario",
+              "key": "$target_result.id",
+              "execution_group": "0a0219d4-a43e-4c92-ad94-0fdb27a5a093"
+            }
+          ]
+        },
+        {
+          "slot_extension_action": "default",
+          "name": "ship_to_party_id",
+          "description": "ID of the ship to party",
+          "optional": false,
+          "source": [
+            {
+              "name": "pur/get_vendor",
+              "type": "scenario",
+              "key": "$target_result.id",
+              "execution_group": "111119d4-a43e-4c92-ad94-0fdb27a5a022"
+            }
+          ]
+        },
+        {
+          "slot_extension_action": "default",
+          "name": "creation_date",
+          "description": "A UNIX timestamp date where the purchase requisition was created",
+          "optional": true,
+          "source": []
+        }
+      ],
+      "capability_id": "dd23f4ce28bb4913ba76cc48e6b0f330",
+      "name": "pur/get_pr",
+      "description": "Returns existing purchase requisitions",
+      "title": "get pr",
+      "extensible": false,
+      "target": {
+        "name": "fetch_purchase_requisition",
+        "type": "function",
+        "parameters": []
+      }
+    },
+    {
+      "capability": {
+        "name": "dependency-capability",
+        "namespace": "com.sap.dep"
+      },
+      "slots": [
+        {
+          "slot_extension_action": "default",
+          "name": "name",
+          "description": "Company name. Can be a part of the official company name",
+          "optional": false,
+          "source": []
+        }
+      ],
+      "capability_id": "dd23f4ce28bb4913ba76cc48e6b0f330",
+      "name": "pur/get_vendor",
+      "description": "Provides information about vendors",
+      "title": "get vendor",
+      "extensible": false,
+      "target": {
+        "name": "pur/fetch_vendors",
+        "type": "function",
+        "parameters": []
+      }
+    }
+  ]
+}
+

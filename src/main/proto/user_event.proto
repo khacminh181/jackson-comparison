@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package org.example.proto;
+
+option java_package = "org.example.proto";
+option java_outer_classname = "UserEventProto";
+
+message UserEvent {
+  string user_id = 1;
+  string action = 2;
+  int64 timestamp = 3;
+  int32 score = 4;
+}
