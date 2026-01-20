@@ -70,7 +70,7 @@ public class BenchmarkServiceImpl implements BenchmarkService {
             }
             long deserializeTime = System.nanoTime() - start;
 
-            System.out.println("=== Jackson JSON ===");
+            System.out.println("=== " + name + " ===");
             System.out.println("Payload size (bytes): " + serialized.length);
             System.out.println("Serialize ms: " + serializeTime / 1_000_000);
             System.out.println("Deserialize ms: " + deserializeTime / 1_000_000);
